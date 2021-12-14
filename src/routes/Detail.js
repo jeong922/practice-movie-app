@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import MovieInfo from "../components/MovieInfo";
 import styles from "./Detail.module.css";
 
