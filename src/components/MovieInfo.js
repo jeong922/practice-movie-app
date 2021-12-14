@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+import styles from "./MovieInfo.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function MovieInfo({
   moviePoster,
@@ -10,19 +13,23 @@ function MovieInfo({
   runtime,
 }) {
   return (
-    <div>
-      <img src={moviePoster} />
-      <h2>
-        {title} ({year})
-      </h2>
-      <h3>⭐{rating}</h3>
-      <h4>{runtime} minutes</h4>
-      <p>{description}</p>
-      <ul>
-        {genres.map((g) => (
-          <li key={g}>{g}</li>
-        ))}
-      </ul>
+    <div className={styles.movie_container}>
+      <img className={styles.movie_poster} src={moviePoster} />
+      <div className={styles.movie_info}>
+        <h2 className={styles.movie_title}>{title}</h2>
+        <span className={styles.movie_year}>{year}</span>
+        <span className={styles.movie_rating}>
+          <FontAwesomeIcon icon={faStar} className={styles.movie_rating_icon} />
+          {rating}
+        </span>
+        <span className={styles.movie_runtime}>{runtime} minutes</span>
+        <ul className={styles.movie_genres}>
+          {genres.map((g) => (
+            <li key={g}>{g}</li>
+          ))}
+        </ul>
+        <p className={styles.movie_description}>{description}</p>
+      </div>
     </div>
   );
 }
